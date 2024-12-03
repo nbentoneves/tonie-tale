@@ -1,8 +1,9 @@
 'use client';
 import { Image } from '@chakra-ui/next-js';
-import { Box, Flex, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, useDisclosure } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import logo from '../../images/logo.png';
+import { useState } from 'react';
 
 const baseAnimationProps = {
     hidden: {},

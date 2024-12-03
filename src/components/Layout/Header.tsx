@@ -13,9 +13,7 @@ const Header = () => {
                 <Link href="/">
                     <Box flexBasis="100%">
                         <Heading fontSize={['2xl', '3xl']}>
-                            My Market Info
-                            <br />
-                            .co.uk
+                            Create My Tonies
                         </Heading>
                     </Box>
                 </Link>

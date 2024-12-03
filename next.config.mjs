@@ -1,14 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    images:{
-        /** FIXME: Change this later */
-        unoptimized: true
-    },
+    basePath: '/create-my-tonies',
     experimental: {
         optimizePackageImports: ['@chakra-ui/react'],
     },
-
 };
 
 export default nextConfig;

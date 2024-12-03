@@ -3815,6 +3815,55 @@ __metadata:
   languageName: node
   linkType: hard
 
+"create-my-tonies@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "create-my-tonies@workspace:."
+  dependencies:
+    "@chakra-ui/next-js": "npm:^2.2.0"
+    "@chakra-ui/react": "npm:^2.8.2"
+    "@emotion/react": "npm:^11.13.3"
+    "@emotion/styled": "npm:^11.13.0"
+    "@next/eslint-plugin-next": "npm:^14.2.12"
+    "@next/third-parties": "npm:^14.2.14"
+    "@svgr/webpack": "npm:^8.1.0"
+    "@tanstack/react-query": "npm:^5.56.1"
+    "@tanstack/react-query-devtools": "npm:^5.56.1"
+    "@types/eslint-plugin-jsx-a11y": "npm:^6"
+    "@types/luxon": "npm:^3"
+    "@types/node": "npm:^20"
+    "@types/react": "npm:^18"
+    "@types/react-dom": "npm:^18"
+    "@types/yaml-front-matter": "npm:^4.1.3"
+    "@typescript-eslint/eslint-plugin": "npm:^8.6.0"
+    "@typescript-eslint/parser": "npm:^8.6.0"
+    axios: "npm:^1.7.7"
+    eslint: "npm:^8"
+    eslint-config-next: "npm:14.2.10"
+    eslint-config-prettier: "npm:^9.1.0"
+    eslint-plugin-clean-styled-components: "npm:^0.0.2"
+    eslint-plugin-cypress: "npm:^3.5.0"
+    eslint-plugin-jest: "npm:^28.8.3"
+    eslint-plugin-jsx-a11y: "npm:^6.10.0"
+    eslint-plugin-react: "npm:^7.36.1"
+    eslint-plugin-react-hooks: "npm:^4.6.2"
+    framer-motion: "npm:^11.5.4"
+    jest: "npm:^29.7.0"
+    luxon: "npm:^3.5.0"
+    next: "npm:14.2.10"
+    postcss: "npm:^8"
+    prettier: "npm:3.3.3"
+    react: "npm:^18"
+    react-dom: "npm:^18"
+    react-hook-form: "npm:^7.53.1"
+    react-icons: "npm:^5.3.0"
+    react-number-format: "npm:^5.4.2"
+    tailwindcss: "npm:^3.4.1"
+    typescript: "npm:^5"
+    uuid: "npm:^11.0.2"
+    yaml-front-matter: "npm:^4.1.1"
+  languageName: unknown
+  linkType: soft
+
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
@@ -6752,55 +6801,6 @@ __metadata:
   checksum: 10/aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
   languageName: node
   linkType: hard
-
-"mymarketinfo-app@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "mymarketinfo-app@workspace:."
-  dependencies:
-    "@chakra-ui/next-js": "npm:^2.2.0"
-    "@chakra-ui/react": "npm:^2.8.2"
-    "@emotion/react": "npm:^11.13.3"
-    "@emotion/styled": "npm:^11.13.0"
-    "@next/eslint-plugin-next": "npm:^14.2.12"
-    "@next/third-parties": "npm:^14.2.14"
-    "@svgr/webpack": "npm:^8.1.0"
-    "@tanstack/react-query": "npm:^5.56.1"
-    "@tanstack/react-query-devtools": "npm:^5.56.1"
-    "@types/eslint-plugin-jsx-a11y": "npm:^6"
-    "@types/luxon": "npm:^3"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^18"
-    "@types/react-dom": "npm:^18"
-    "@types/yaml-front-matter": "npm:^4.1.3"
-    "@typescript-eslint/eslint-plugin": "npm:^8.6.0"
-    "@typescript-eslint/parser": "npm:^8.6.0"
-    axios: "npm:^1.7.7"
-    eslint: "npm:^8"
-    eslint-config-next: "npm:14.2.10"
-    eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-clean-styled-components: "npm:^0.0.2"
-    eslint-plugin-cypress: "npm:^3.5.0"
-    eslint-plugin-jest: "npm:^28.8.3"
-    eslint-plugin-jsx-a11y: "npm:^6.10.0"
-    eslint-plugin-react: "npm:^7.36.1"
-    eslint-plugin-react-hooks: "npm:^4.6.2"
-    framer-motion: "npm:^11.5.4"
-    jest: "npm:^29.7.0"
-    luxon: "npm:^3.5.0"
-    next: "npm:14.2.10"
-    postcss: "npm:^8"
-    prettier: "npm:3.3.3"
-    react: "npm:^18"
-    react-dom: "npm:^18"
-    react-hook-form: "npm:^7.53.1"
-    react-icons: "npm:^5.3.0"
-    react-number-format: "npm:^5.4.2"
-    tailwindcss: "npm:^3.4.1"
-    typescript: "npm:^5"
-    uuid: "npm:^11.0.2"
-    yaml-front-matter: "npm:^4.1.1"
-  languageName: unknown
-  linkType: soft
 
 "mz@npm:^2.7.0":
   version: 2.7.0

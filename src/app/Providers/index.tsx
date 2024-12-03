@@ -4,7 +4,7 @@ import {
     MutationCache,
     QueryCache,
     QueryClient,
-    QueryClientProvider
+    QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { AxiosError } from 'axios';
@@ -16,8 +16,6 @@ const ProvidersWrapper = ({
     children: React.ReactNode;
 }>) => {
     const toast = useToast();
-
-    const url = process.env.NEXT_PUBLIC_URL_MY_MARKET_INFO_API;
 
     const handleError = (error: AxiosError) => {
         toast({

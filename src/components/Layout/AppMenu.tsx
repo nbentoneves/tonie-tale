@@ -20,9 +20,7 @@ import { BiMenu, BiSolidBookBookmark } from 'react-icons/bi';
 import { BsCalculator } from 'react-icons/bs';
 
 const AppMenu = () => {
-    const { onClose, onOpen, isOpen } = useDisclosure({
-        id: 'drawer',
-    });
+    const { onClose, onOpen, isOpen } = useDisclosure();
     const { colorMode } = useColorMode();
 
     const [isBiggerThanMobile] = useMediaQuery('(min-width: 480px)');
@@ -34,7 +32,10 @@ const AppMenu = () => {
                 icon={<BiMenu />}
                 aria-label="app-menu"
                 background="none"
-                onClick={onOpen}
+                onClick={() => {
+                    console.log('click');
+                    onOpen();
+                }}
             />
             <Drawer
                 placement={isBiggerThanMobile ? 'right' : 'top'}
@@ -45,9 +46,7 @@ const AppMenu = () => {
 
                 <DrawerContent>
                     <DrawerHeader>
-                        <Heading size="xs">
-                            Welcome to mymarketinfo.co.uk
-                        </Heading>
+                        <Heading size="xs">Welcome to CreateMyTonies</Heading>
                     </DrawerHeader>
 
                     <DrawerBody>
@@ -99,7 +98,9 @@ const AppMenu = () => {
                             >
                                 <Icon as={BsCalculator} />
                                 <Box marginLeft={4}>
-                                    <Heading size="sm">Multi ETF Calculator</Heading>
+                                    <Heading size="sm">
+                                        Multi ETF Calculator
+                                    </Heading>
                                     <Text fontSize="xs">
                                         Cost of multiple ETFs
                                     </Text>

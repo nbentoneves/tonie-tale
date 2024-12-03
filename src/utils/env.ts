@@ -3,5 +3,5 @@ export const Env = {
     uri:
         process.env.NODE_ENV === 'development'
             ? 'http://localhost:3000'
-            : 'https://mymarketinfo-web-7a7b3c83dc1d.herokuapp.com',
+            : 'https://nbentoneves.github.io/create-my-tonies',
 };
