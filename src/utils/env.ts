@@ -3,5 +3,5 @@ export const Env = {
     uri:
         process.env.NODE_ENV === 'development'
             ? 'http://localhost:3000'
-            : 'https://nbentoneves.github.io/create-my-tonies',
+            : 'https://nbentoneves.github.io/tonie-tales',
 };

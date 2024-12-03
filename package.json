@@ -1,10 +1,11 @@
 {
-  "name": "create-my-tonies",
+  "name": "tonie-tales",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "BASE_URL=/tonie-tales next build",
+    "build-locally": "next build",
     "start": "next start",
     "lint": "next lint",
     "test": "DEBUG_PRINT_LIMIT=50000 jest --no-cache --coverage --passWithNoTests",

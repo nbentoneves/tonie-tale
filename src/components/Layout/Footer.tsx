@@ -3,6 +3,7 @@ import { DateTime } from 'luxon';
 import NextLink from 'next/link';
 import BuyMeCoffee from '../BuyMeCoffee';
 import { maxWidthProps } from './styles/customTheme';
+import getConfig from 'next/config';
 
 const year = DateTime.now().year;
 
@@ -18,8 +19,12 @@ const Footer = () => {
         >
             <Text flexBasis={['100%', '100%', '50%']}>
                 {year} -{' '}
-                <Link href="/create-my-tonies" as={NextLink} fontWeight={500}>
-                    nbentoneves.github.io/create-my-tonies
+                <Link
+                    href="/"
+                    as={NextLink}
+                    fontWeight={500}
+                >
+                    TonieTales
                 </Link>
             </Text>
 

@@ -2,13 +2,15 @@ import { Metadata } from 'next';
 import { Env } from './env';
 
 const homePage: Metadata = {
-    title: 'CreateMyTonies - Easy way to create stories for tonies',
-    description: ``,
-    keywords: '',
+    title: 'TonieTales: Your Story Upload Hub',
+    description:
+        'Discover TonieTales: Your place to creating and uploading custom stories for Tonie Box. Effortlessly upload your stories in just a few clicks. Share your personalized audio adventures with ease, it is quick, simple, and fun!',
+    keywords:
+        'tonie box, story upload, audio stories, personalized tales, children stories, storytelling platform, story sharing, family entertainment, educational stories',
     alternates: {
         canonical: Env.isDevelopment
             ? 'http://localhost:3000'
-            : 'https://nbentoneves.github.io/create-my-tonies',
+            : 'https://nbentoneves.github.io/tonie-tales',
     },
     icons: [
         {

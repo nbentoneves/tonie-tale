@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    basePath: '/create-my-tonies',
+    basePath: process.env.BASE_URL,
     experimental: {
         optimizePackageImports: ['@chakra-ui/react'],
     },

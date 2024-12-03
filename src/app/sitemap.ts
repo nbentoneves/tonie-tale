@@ -9,18 +9,6 @@ const Sitemap = (): MetadataRoute.Sitemap => {
             changeFrequency: 'yearly',
             priority: 1,
         },
-        {
-            url: `${Env.uri}/blog`,
-            lastModified: '2024-10-03T09:00:00',
-            changeFrequency: 'weekly',
-            priority: 0.8,
-        },
-        {
-            url: `${Env.uri}/etf/calculator`,
-            lastModified: '2024-10-02T09:00:00',
-            changeFrequency: 'yearly',
-            priority: 0.6,
-        },
     ];
 };
 

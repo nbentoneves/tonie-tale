@@ -13,7 +13,7 @@ const Header = () => {
                 <Link href="/">
                     <Box flexBasis="100%">
                         <Heading fontSize={['2xl', '3xl']}>
-                            Create My Tonies
+                            TonieTales
                         </Heading>
                     </Box>
                 </Link>
