@@ -1,0 +1,43 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+      "prettier",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:cypress/recommended",
+      "eslint:recommended", 
+      "next"
+  ],
+  "plugins": [
+      "react",
+      "jest",
+      "jsx-a11y",
+      "@typescript-eslint",
+      "clean-styled-components",
+      "cypress"
+  ],
+  "rules": {
+      "react/jsx-indent": "off",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-filename-extension": "off",
+      "react/jsx-curly-brace-presence": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react/no-unescaped-entities": 1,
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "react/jsx-no-bind": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-shadow": 1,
+      "no-duplicate-imports": 1,
+      "cypress/unsafe-to-chain-command": "off",
+      "react/no-children-prop": 0
+  },
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  }
+}
