@@ -46,7 +46,7 @@ const AppMenu = () => {
 
                 <DrawerContent>
                     <DrawerHeader>
-                        <Heading size="xs">Welcome to CreateMyTonies</Heading>
+                        <Heading size="xs">Welcome to Tonietales</Heading>
                     </DrawerHeader>
 
                     <DrawerBody>
@@ -55,6 +55,7 @@ const AppMenu = () => {
                             as={NextLink}
                             _hover={{ textDecoration: 'none' }}
                             onClick={onClose}
+                            hidden
                         >
                             <Flex
                                 marginY={4}
@@ -83,6 +84,7 @@ const AppMenu = () => {
                             as={NextLink}
                             _hover={{ textDecoration: 'none' }}
                             onClick={onClose}
+                            hidden
                         >
                             <Flex
                                 marginY={4}
