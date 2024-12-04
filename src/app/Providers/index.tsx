@@ -1,5 +1,6 @@
 'use client';
-import { ChakraProvider, useToast } from '@chakra-ui/react';
+import { toaster } from '@componentes/ui/toaster';
+import { Provider as ChakraProvider } from '@componentes/ui/provider';
 import {
     MutationCache,
     QueryCache,
@@ -15,17 +16,14 @@ const ProvidersWrapper = ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
-    const toast = useToast();
-
     const handleError = (error: AxiosError) => {
-        toast({
+        toaster.create({
             title: error.message,
             description:
                 (error?.response?.data as any).message ||
                 'Please contact the service provider',
-            status: 'error',
+            type: 'error',
             duration: 9000,
-            isClosable: true,
         });
     };
 
@@ -40,7 +38,7 @@ const ProvidersWrapper = ({
     });
 
     return (
-        <ChakraProvider>
+        <ChakraProvider defaultTheme="light">
             <QueryClientProvider client={queryClient}>
                 <>{children}</>
                 <ReactQueryDevtools initialIsOpen={false} />

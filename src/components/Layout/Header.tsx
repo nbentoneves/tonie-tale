@@ -1,9 +1,9 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Image } from '@chakra-ui/react';
 import Link from 'next/link';
 import logo from '../../images/logo-no-background.png';
 import { maxWidthProps } from './styles/customTheme';
+import NextImage from 'next/image';
 
-import { Image } from '@chakra-ui/next-js';
 import AppMenu from './AppMenu';
 import ThemeToggle from './ThemeToggle';
 
@@ -25,7 +25,9 @@ const Header = () => {
 
             <Box width={[100, 300, 400]}>
                 <Link href="/">
-                    <Image src={logo} alt="logo" width={200} />
+                    <Image asChild alt="TonieTales">
+                        <NextImage src={logo} alt="logo" width={200} />
+                    </Image>
                 </Link>
             </Box>
 

@@ -1,5 +1,4 @@
-import { Link } from '@chakra-ui/next-js';
-import { chakra } from '@chakra-ui/react';
+import { chakra, Link } from '@chakra-ui/react';
 
 const DECORATION = {
     textDecoration: 'none',
@@ -9,7 +8,7 @@ const DECORATION = {
 };
 
 const Button = chakra('a', {
-    baseStyle: {
+    base: {
         lineHeight: 2,
         height: '5rem',
         textDecoration: 'none',
@@ -31,7 +30,7 @@ const Button = chakra('a', {
 });
 
 const Image = chakra('img', {
-    baseStyle: {
+    base: {
         height: '34px',
         width: '35px',
         marginBottom: '1px',
@@ -42,7 +41,7 @@ const Image = chakra('img', {
 });
 
 const Text = chakra('span', {
-    baseStyle: {
+    base: {
         marginLeft: '15px',
         fontSize: '2rem',
         verticalAlign: 'middle',

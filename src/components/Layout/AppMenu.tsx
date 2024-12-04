@@ -1,61 +1,61 @@
 import {
     Box,
-    Drawer,
-    DrawerBody,
-    DrawerContent,
-    DrawerHeader,
-    DrawerOverlay,
     Flex,
     Heading,
     Icon,
     IconButton,
     Link,
     Text,
-    useColorMode,
     useDisclosure,
-    useMediaQuery,
 } from '@chakra-ui/react';
-import NextLink from 'next/link';
-import { BiMenu, BiSolidBookBookmark } from 'react-icons/bi';
-import { BsCalculator } from 'react-icons/bs';
+import { Button } from '@componentes/ui/button';
+import { useColorMode } from '@componentes/ui/color-mode';
+import {
+    DrawerActionTrigger,
+    DrawerBackdrop,
+    DrawerBody,
+    DrawerCloseTrigger,
+    DrawerContent,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerRoot,
+    DrawerTrigger,
+} from '@componentes/ui/drawer';
+import { BiMenu } from 'react-icons/bi';
 
 const AppMenu = () => {
-    const { onClose, onOpen, isOpen } = useDisclosure();
+    const { onClose, onOpen, open } = useDisclosure();
     const { colorMode } = useColorMode();
-
-    const [isBiggerThanMobile] = useMediaQuery('(min-width: 480px)');
 
     return (
         <>
-            <IconButton
-                marginLeft={2}
-                icon={<BiMenu />}
-                aria-label="app-menu"
-                background="none"
-                onClick={() => {
-                    console.log('click');
-                    onOpen();
-                }}
-            />
-            <Drawer
-                placement={isBiggerThanMobile ? 'right' : 'top'}
-                isOpen={isOpen}
-                onClose={onClose}
+            <DrawerRoot
+                open={open}
+                onOpenChange={(e) => (e.open ? onOpen() : onClose())}
             >
-                <DrawerOverlay />
+                <DrawerBackdrop />
+
+                <DrawerTrigger asChild>
+                    <IconButton
+                        marginLeft={2}
+                        aria-label="app-menu"
+                        background="none"
+                    >
+                        <BiMenu color='black' />
+                    </IconButton>
+                </DrawerTrigger>
 
                 <DrawerContent>
                     <DrawerHeader>
-                        <Heading size="xs">Welcome to Tonietales</Heading>
+                        <Text as="h1" fontSize="x-large">
+                            Welcome to Tonietales
+                        </Text>
                     </DrawerHeader>
-
                     <DrawerBody>
                         <Link
-                            href="/etf/calculator"
-                            as={NextLink}
+                            href="/about"
                             _hover={{ textDecoration: 'none' }}
                             onClick={onClose}
-                            hidden
                         >
                             <Flex
                                 marginY={4}
@@ -69,78 +69,24 @@ const AppMenu = () => {
                                             : 'gray.600',
                                 }}
                             >
-                                <Icon as={BsCalculator} />
                                 <Box marginLeft={4}>
-                                    <Heading size="sm">ETF Calculator</Heading>
+                                    <Heading size="sm">About us</Heading>
                                     <Text fontSize="xs">
                                         Helps you to know the cost of an ETF
                                     </Text>
                                 </Box>
                             </Flex>
                         </Link>
-
-                        <Link
-                            href="/etf/multi-calculator"
-                            as={NextLink}
-                            _hover={{ textDecoration: 'none' }}
-                            onClick={onClose}
-                            hidden
-                        >
-                            <Flex
-                                marginY={4}
-                                alignItems="center"
-                                padding={2}
-                                borderRadius={12}
-                                _hover={{
-                                    backgroundColor:
-                                        colorMode === 'light'
-                                            ? 'gray.200'
-                                            : 'gray.600',
-                                }}
-                            >
-                                <Icon as={BsCalculator} />
-                                <Box marginLeft={4}>
-                                    <Heading size="sm">
-                                        Multi ETF Calculator
-                                    </Heading>
-                                    <Text fontSize="xs">
-                                        Cost of multiple ETFs
-                                    </Text>
-                                </Box>
-                            </Flex>
-                        </Link>
-
-                        <Link
-                            hidden
-                            href="/blog"
-                            as={NextLink}
-                            _hover={{ textDecoration: 'none' }}
-                            onClick={onClose}
-                        >
-                            <Flex
-                                marginY={4}
-                                alignItems="center"
-                                padding={2}
-                                borderRadius={12}
-                                _hover={{
-                                    backgroundColor:
-                                        colorMode === 'light'
-                                            ? 'gray.200'
-                                            : 'gray.600',
-                                }}
-                            >
-                                <Icon as={BiSolidBookBookmark} />
-                                <Box marginLeft={4}>
-                                    <Heading size="sm">Blog</Heading>
-                                    <Text fontSize="xs">
-                                        Read about my journey
-                                    </Text>
-                                </Box>
-                            </Flex>
-                        </Link>
                     </DrawerBody>
+                    <DrawerFooter>
+                        <DrawerActionTrigger asChild>
+                            <Button variant="outline">Cancel</Button>
+                        </DrawerActionTrigger>
+                        <Button>Save</Button>
+                    </DrawerFooter>
+                    <DrawerCloseTrigger />
                 </DrawerContent>
-            </Drawer>
+            </DrawerRoot>
         </>
     );
 };

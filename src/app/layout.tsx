@@ -1,23 +1,10 @@
 import LayoutWrapper from '@componentes/Layout';
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
-import React from 'react';
-import './globals.css';
-import ProvidersWrapper from './Providers';
-import { Seo } from '../utils/seo';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import type { Metadata } from 'next';
+import React from 'react';
 import { Env } from '../utils/env';
-
-const geistSans = localFont({
-    src: './../../public/fonts/GeistVF.woff',
-    variable: '--font-geist-sans',
-    weight: '100 900',
-});
-const geistMono = localFont({
-    src: './../../public/fonts/GeistMonoVF.woff',
-    variable: '--font-geist-mono',
-    weight: '100 900',
-});
+import { Seo } from '../utils/seo';
+import ProvidersWrapper from './Providers';
 
 export const metadata: Metadata = Seo.default;
 
@@ -28,10 +15,7 @@ const RootLayout = ({
 }>) => {
     return (
         <html lang="en">
-            <body
-                suppressHydrationWarning
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
+            <body suppressHydrationWarning>
                 <ProvidersWrapper>
                     <LayoutWrapper>{children}</LayoutWrapper>
                 </ProvidersWrapper>

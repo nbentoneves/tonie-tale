@@ -1,8 +1,8 @@
 'use client';
-import { Image } from '@chakra-ui/next-js';
-import { Box, Flex, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import logo from '../../images/logo-no-background.png';
+
+const MotionFlex = motion(Flex);
 
 const baseAnimationProps = {
     hidden: {},
@@ -11,7 +11,7 @@ const baseAnimationProps = {
 
 const Home = () => {
     return (
-        <Flex
+        <MotionFlex
             as={motion.div}
             variants={baseAnimationProps}
             initial="hidden"
@@ -20,15 +20,13 @@ const Home = () => {
             flexDirection="column"
             gap={6}
         >
-            
-
             <Box mt={[8, 8, 0]} textAlign="center">
                 <Text as="h1" fontSize="2xl" mb={5}>
                     <b>Welcome</b> to the place where you can find tools to help
                     with your investments.
                 </Text>
             </Box>
-        </Flex>
+        </MotionFlex>
     );
 };
 

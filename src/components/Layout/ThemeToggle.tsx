@@ -1,18 +1,11 @@
-import { IconButton, useColorMode } from '@chakra-ui/react';
-import { CgMoon, CgSun } from 'react-icons/cg';
+import { Box } from '@chakra-ui/react';
+import { ColorModeButton } from '@componentes/ui/color-mode';
 
 const ThemeToggle = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
-
     return (
-        <IconButton
-            hidden
-            marginRight={2}
-            aria-label="theme toggle"
-            icon={colorMode === 'light' ? <CgMoon /> : <CgSun />}
-            onClick={toggleColorMode}
-            backgroundColor={colorMode === 'light' ? 'gray.50' : 'gray.700'}
-        />
+        <Box marginRight={2} hidden>
+            <ColorModeButton aria-label="theme toggle" />
+        </Box>
     );
 };
 

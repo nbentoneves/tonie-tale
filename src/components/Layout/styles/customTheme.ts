@@ -1,16 +1,20 @@
-import { extendTheme } from '@chakra-ui/react';
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react';
 
-const customTheme = extendTheme({
-    fonts: {
-        body: 'Rubik, sans-serif',
-        heading: 'Rubik, serif',
+const config = defineConfig({
+    theme: {
+        tokens: {
+            fonts: {
+                body: { value: 'Comic Sans MS, sans-serif' },
+                heading: { value: 'Arial, serif' },
+            },
+        },
     },
 });
 
+export const system = createSystem(defaultConfig, config);
+
 export const maxWidthProps = {
     margin: '0 auto',
-    maxWidth: 1000,
-    padding: 8,
+    maxWidth: 800,
+    padding: 10,
 };
-
-export default customTheme;
