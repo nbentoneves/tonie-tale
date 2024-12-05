@@ -1,4 +1,5 @@
 export const Env = {
+    base: process.env.NODE_ENV === 'development' ? "" : "/tonie-tales",
     isDevelopment: process.env.NODE_ENV === 'development',
     uri:
         process.env.NODE_ENV === 'development'

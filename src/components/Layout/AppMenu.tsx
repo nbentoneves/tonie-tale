@@ -8,7 +8,6 @@ import {
     useDisclosure,
 } from '@chakra-ui/react';
 import { Button } from '@componentes/ui/button';
-import { useColorMode } from '@componentes/ui/color-mode';
 import {
     DrawerActionTrigger,
     DrawerBackdrop,
@@ -21,10 +20,10 @@ import {
     DrawerTrigger,
 } from '@componentes/ui/drawer';
 import { BiMenu } from 'react-icons/bi';
+import { Env } from '../../utils/env';
 
 const AppMenu = () => {
     const { onClose, onOpen, open } = useDisclosure();
-    const { colorMode } = useColorMode();
 
     return (
         <>
@@ -52,7 +51,7 @@ const AppMenu = () => {
                     </DrawerHeader>
                     <DrawerBody>
                         <Link
-                            href="/about"
+                            href={`${Env.base}/about`}
                             textDecoration="none"
                             outline="none"
                             onClick={onClose}
