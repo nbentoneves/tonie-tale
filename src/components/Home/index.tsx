@@ -22,8 +22,7 @@ const Home = () => {
         >
             <Box mt={[8, 8, 0]} textAlign="center">
                 <Text as="h1" fontSize="2xl" mb={5}>
-                    <b>Welcome</b> to the place where you can find tools to help
-                    with your investments.
+                    <b>Welcome</b> this place is under construction! See you soon :)
                 </Text>
             </Box>
         </MotionFlex>

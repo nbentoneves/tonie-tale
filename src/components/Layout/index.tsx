@@ -23,15 +23,20 @@ const LayoutWrapper = ({
                     textAlign="center"
                     flexDirection="column"
                     variant="solid"
+                    fontSize={[13, 15, 15]}
                 >
                     <Box>
-                        Please note that TonieTales is an independent platform
+                        Please note that Tonietales is an independent platform
                         and is not affiliated with, endorsed by, or associated
-                        with Tonies.com or its parent company. Our website is
-                        dedicated to providing a space for users to create and
-                        upload their own stories for use with the Tonie Box. For
-                        official products and services, please visit{' '}
-                        <Link href="https://tonies.com/" target="_blank">
+                        with Tonies GmbH or its parent company. Our website is
+                        dedicated to providing a space for users to create
+                        stories for use with the Tonie Box. For official
+                        products and services, please visit{' '}
+                        <Link
+                            href="https://tonies.com/"
+                            target="_blank"
+                            color="black"
+                        >
                             Tonies.com
                         </Link>{' '}
                         directly.

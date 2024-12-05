@@ -2,7 +2,6 @@ import {
     Box,
     Flex,
     Heading,
-    Icon,
     IconButton,
     Link,
     Text,
@@ -41,38 +40,28 @@ const AppMenu = () => {
                         aria-label="app-menu"
                         background="none"
                     >
-                        <BiMenu color='black' />
+                        <BiMenu color="black" />
                     </IconButton>
                 </DrawerTrigger>
 
                 <DrawerContent>
                     <DrawerHeader>
-                        <Text as="h1" fontSize="x-large">
+                        <Text as="h1" fontSize="large">
                             Welcome to Tonietales
                         </Text>
                     </DrawerHeader>
                     <DrawerBody>
                         <Link
                             href="/about"
-                            _hover={{ textDecoration: 'none' }}
+                            textDecoration="none"
+                            outline="none"
                             onClick={onClose}
                         >
-                            <Flex
-                                marginY={4}
-                                alignItems="center"
-                                padding={2}
-                                borderRadius={12}
-                                _hover={{
-                                    backgroundColor:
-                                        colorMode === 'light'
-                                            ? 'gray.200'
-                                            : 'gray.600',
-                                }}
-                            >
+                            <Flex marginY={4} alignItems="center" padding={2}>
                                 <Box marginLeft={4}>
                                     <Heading size="sm">About us</Heading>
                                     <Text fontSize="xs">
-                                        Helps you to know the cost of an ETF
+                                        Our story and goal
                                     </Text>
                                 </Box>
                             </Flex>
@@ -82,7 +71,6 @@ const AppMenu = () => {
                         <DrawerActionTrigger asChild>
                             <Button variant="outline">Cancel</Button>
                         </DrawerActionTrigger>
-                        <Button>Save</Button>
                     </DrawerFooter>
                     <DrawerCloseTrigger />
                 </DrawerContent>

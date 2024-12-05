@@ -5,7 +5,7 @@ const config = defineConfig({
         tokens: {
             fonts: {
                 body: { value: 'Comic Sans MS, sans-serif' },
-                heading: { value: 'Arial, serif' },
+                heading: { value: 'Comic Sans MS, sans-serif' },
             },
         },
     },
