@@ -1,5 +1,5 @@
 'use client';
-import { toaster } from '@componentes/ui/toaster';
+import { Toaster, toaster } from '@componentes/ui/toaster';
 import { Provider as ChakraProvider } from '@componentes/ui/provider';
 import {
     MutationCache,
@@ -40,6 +40,7 @@ const ProvidersWrapper = ({
     return (
         <ChakraProvider defaultTheme="light">
             <QueryClientProvider client={queryClient}>
+                <Toaster />
                 <>{children}</>
                 <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>

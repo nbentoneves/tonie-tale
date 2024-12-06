@@ -19,7 +19,7 @@ import {
     DrawerRoot,
     DrawerTrigger,
 } from '@componentes/ui/drawer';
-import { BiMenu } from 'react-icons/bi';
+import { BiMenu as MenuIcon } from 'react-icons/bi';
 import { Env } from '../../utils/env';
 
 const AppMenu = () => {
@@ -39,7 +39,7 @@ const AppMenu = () => {
                         aria-label="app-menu"
                         background="none"
                     >
-                        <BiMenu color="black" />
+                        <MenuIcon color="black" />
                     </IconButton>
                 </DrawerTrigger>
 
@@ -51,6 +51,22 @@ const AppMenu = () => {
                     </DrawerHeader>
                     <DrawerBody>
                         <Link
+                            href={`${Env.base}/create`}
+                            textDecoration="none"
+                            outline="none"
+                            onClick={onClose}
+                            hidden
+                        >
+                            <Flex marginY={4} alignItems="center" padding={2}>
+                                <Box marginLeft={4}>
+                                    <Heading size="sm">Get a Tale</Heading>
+                                    <Text fontSize="xs">
+                                        Generate a personalized tale
+                                    </Text>
+                                </Box>
+                            </Flex>
+                        </Link>
+                        <Link
                             href={`${Env.base}/about`}
                             textDecoration="none"
                             outline="none"
@@ -60,7 +76,7 @@ const AppMenu = () => {
                                 <Box marginLeft={4}>
                                     <Heading size="sm">About us</Heading>
                                     <Text fontSize="xs">
-                                        Our story and goal
+                                        Discover the Magic of TonieTales
                                     </Text>
                                 </Box>
                             </Flex>

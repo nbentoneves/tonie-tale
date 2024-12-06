@@ -2618,6 +2618,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jsonp@npm:^0":
+  version: 0.2.3
+  resolution: "@types/jsonp@npm:0.2.3"
+  checksum: 10/4378a267cc581bbaf08849099fe8887073fe46430f722d534352ddd274e79d7d587c82242a7b71c5a63b7bc2ad3c0e9c402bc039d59c61292a45e94eaa555198
+  languageName: node
+  linkType: hard
+
 "@types/luxon@npm:^3":
   version: 3.4.2
   resolution: "@types/luxon@npm:3.4.2"
@@ -4738,6 +4745,15 @@ __metadata:
     supports-color:
       optional: true
   checksum: 10/71168908b9a78227ab29d5d25fe03c5867750e31ce24bf2c44a86efc5af041758bb56569b0a3d48a9b5344c00a24a777e6f4100ed6dfd9534a42c1dde285125a
+  languageName: node
+  linkType: hard
+
+"debug@npm:^2.1.3":
+  version: 2.6.9
+  resolution: "debug@npm:2.6.9"
+  dependencies:
+    ms: "npm:2.0.0"
+  checksum: 10/e07005f2b40e04f1bd14a3dd20520e9c4f25f60224cb006ce9d6781732c917964e9ec029fc7f1a151083cd929025ad5133814d4dc624a9aaf020effe4914ed14
   languageName: node
   linkType: hard
 
@@ -7124,6 +7140,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonp@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "jsonp@npm:0.2.1"
+  dependencies:
+    debug: "npm:^2.1.3"
+  checksum: 10/90aabd9deb3a9ba83aedf8d40e1aaff1fc29f3f3fe42985a661782498dde526a7cd9b7bec4b8721f7d0beafab9e5ccfdafd46640f7dd6c58d529a6bb5238e2b8
+  languageName: node
+  linkType: hard
+
 "jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.5":
   version: 3.3.5
   resolution: "jsx-ast-utils@npm:3.3.5"
@@ -7546,6 +7571,13 @@ __metadata:
     react-dom:
       optional: true
   checksum: 10/8a6dbe9a7309fc6b160a491265160915aa292c984d0e961f7df70df72b34b226610c21be06b6bce77ee445a4fad7276532deff266bc1584705f71a3ae0e73bd0
+  languageName: node
+  linkType: hard
+
+"ms@npm:2.0.0":
+  version: 2.0.0
+  resolution: "ms@npm:2.0.0"
+  checksum: 10/0e6a22b8b746d2e0b65a430519934fefd41b6db0682e3477c10f60c76e947c4c0ad06f63ffdf1d78d335f83edee8c0aa928aa66a36c7cd95b69b26f468d527f4
   languageName: node
   linkType: hard
 
@@ -9170,6 +9202,7 @@ __metadata:
     "@tanstack/react-query": "npm:^5.56.1"
     "@tanstack/react-query-devtools": "npm:^5.56.1"
     "@types/eslint-plugin-jsx-a11y": "npm:^6"
+    "@types/jsonp": "npm:^0"
     "@types/luxon": "npm:^3"
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
@@ -9188,6 +9221,7 @@ __metadata:
     eslint-plugin-react: "npm:^7.36.1"
     eslint-plugin-react-hooks: "npm:^4.6.2"
     jest: "npm:^29.7.0"
+    jsonp: "npm:^0.2.1"
     luxon: "npm:^3.5.0"
     motion: "npm:^11.13.1"
     next: "npm:14.2.10"
