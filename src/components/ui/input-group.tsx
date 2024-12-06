@@ -1,6 +1,7 @@
 import type { BoxProps, InputElementProps } from '@chakra-ui/react';
+// eslint-disable-next-line no-duplicate-imports
 import { Group, InputElement } from '@chakra-ui/react';
-import * as React from 'react';
+import React from 'react';
 
 export interface InputGroupProps extends BoxProps {
     startElementProps?: InputElementProps;

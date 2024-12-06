@@ -6,7 +6,7 @@ import jsonp from 'jsonp';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-type Input = {
+type InputForm = {
     email: string;
 };
 
@@ -15,22 +15,17 @@ const Mailchimp = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<Input>();
+    } = useForm<InputForm>();
 
     const [isSubscriptionDisabled, setIsSubscriptionDisabled] =
         useState<boolean>(false);
 
-    const onSubmit: SubmitHandler<Input> = (data) => {
+    const onSubmit: SubmitHandler<InputForm> = (data) => {
         const url =
             'https://github.us11.list-manage.com/subscribe/post-json?u=9226449943d3d975da62d4561&amp;id=858bba42ef&amp;f_id=00f7c2e1f0';
 
-        jsonp(`${url}&EMAIL=${data.email}`, { param: 'c' }, (err, data) => {
-            if (err) {
-                toaster.create({
-                    title: 'Something went wrong. Please contact the administrator!',
-                    type: 'error',
-                });
-            } else if (data.result !== 'success') {
+        jsonp(`${url}&EMAIL=${data.email}`, { param: 'c' }, (err, response) => {
+            if (err || response.result !== 'success') {
                 toaster.create({
                     title: 'Something went wrong. Please contact the administrator!',
                     type: 'error',

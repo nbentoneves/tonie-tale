@@ -1,8 +1,9 @@
 'use client';
 
 import type { GroupProps, SlotRecipeProps } from '@chakra-ui/react';
+// eslint-disable-next-line no-duplicate-imports
 import { Avatar as ChakraAvatar, Group } from '@chakra-ui/react';
-import * as React from 'react';
+import React from 'react';
 
 type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 

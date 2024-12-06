@@ -1,11 +1,12 @@
 import type { ButtonProps as ChakraButtonProps } from '@chakra-ui/react';
+// eslint-disable-next-line no-duplicate-imports
 import {
     AbsoluteCenter,
     Button as ChakraButton,
     Span,
     Spinner,
 } from '@chakra-ui/react';
-import * as React from 'react';
+import React from 'react';
 
 interface ButtonLoadingProps {
     loading?: boolean;

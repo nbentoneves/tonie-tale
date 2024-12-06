@@ -191,18 +191,19 @@ const TalesCreate = () => {
                     </Flex>
 
                     <Box>
-                        {characters.map((_, index) => {
-                            const caracterNumber = index + 1;
+                        {characters.map((character, index) => {
+                            const characterNumber = index + 1;
 
                             return (
                                 <Flex
+                                    key={`${character.id}-${character.name}-${character.type} `}
                                     flexDirection="row"
                                     alignItems="center"
                                     gap="2"
                                     mt="2"
                                 >
                                     <Field
-                                        label={`${caracterNumber} Character`}
+                                        label={`${characterNumber} Character`}
                                         helperText="Peter"
                                     >
                                         <Input
