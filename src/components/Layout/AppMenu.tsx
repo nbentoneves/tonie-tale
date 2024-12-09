@@ -51,7 +51,7 @@ const AppMenu = () => {
                     </DrawerHeader>
                     <DrawerBody>
                         <Link
-                            href={`${Env.base}/create`}
+                            href="/create"
                             textDecoration="none"
                             outline="none"
                             onClick={onClose}
@@ -67,7 +67,7 @@ const AppMenu = () => {
                             </Flex>
                         </Link>
                         <Link
-                            href={`${Env.base}/about`}
+                            href="/about"
                             textDecoration="none"
                             outline="none"
                             onClick={onClose}

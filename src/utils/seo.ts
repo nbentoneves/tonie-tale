@@ -43,7 +43,7 @@ const homePage: Metadata = {
     alternates: {
         canonical: Env.isDevelopment
             ? 'http://localhost:3000'
-            : `https://nbentoneves.github.io${Env.base}`,
+            : `https://tonietale.com/`,
     },
 };
 
@@ -57,7 +57,7 @@ const createTalesPage: Metadata = {
     alternates: {
         canonical: Env.isDevelopment
             ? 'http://localhost:3000'
-            : `https://nbentoneves.github.io${Env.base}/create`,
+            : `https://tonietale.com/create`,
     },
 };
 
@@ -71,7 +71,7 @@ const aboutPage: Metadata = {
     alternates: {
         canonical: Env.isDevelopment
             ? 'http://localhost:3000'
-            : `https://nbentoneves.github.io${Env.base}/about`,
+            : `https://tonietale.com/about`,
     },
 };
 
