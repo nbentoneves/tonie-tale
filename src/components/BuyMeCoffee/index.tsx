@@ -53,7 +53,7 @@ const BuyMeCoffee = () => {
         <Link href="https://www.buymeacoffee.com/nbentoneves">
             {/* FIXME: This needs to be fixed in IOS */}
             <Image
-                src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=nbentoneves&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff"
+                src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=nbentoneves&button_colour=D10E1D&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=ffffff"
                 alt="By me a coffee"
                 width={200}
                 height={50}
