@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "BASE_URL=/tonie-tales next build",
+    "build": "next build",
     "build-locally": "next build",
     "start": "next start",
     "lint": "next lint",
