@@ -20,7 +20,7 @@ const Footer = () => {
             <Text flexBasis={['100%', '100%', '50%']}>
                 {year} -{' '}
                 <Link href="/" as={NextLink} fontWeight={500}>
-                    TonieTales
+                    TonieTale
                 </Link>
             </Text>
 

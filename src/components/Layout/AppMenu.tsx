@@ -46,7 +46,7 @@ const AppMenu = () => {
                 <DrawerContent>
                     <DrawerHeader>
                         <Text as="h1" fontSize="large">
-                            Welcome to Tonietales
+                            Welcome to Tonietale
                         </Text>
                     </DrawerHeader>
                     <DrawerBody>
@@ -76,7 +76,7 @@ const AppMenu = () => {
                                 <Box marginLeft={4}>
                                     <Heading size="sm">About us</Heading>
                                     <Text fontSize="xs">
-                                        Discover the Magic of TonieTales
+                                        Discover the Magic of TonieTale
                                     </Text>
                                 </Box>
                             </Flex>

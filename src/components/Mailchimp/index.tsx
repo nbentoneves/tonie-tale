@@ -32,7 +32,7 @@ const Mailchimp = () => {
                 });
             } else {
                 toaster.create({
-                    title: 'Thank you for joining the TonieTales family!',
+                    title: 'Thank you for joining the TonieTale family!',
                     type: 'success',
                 });
                 setIsSubscriptionDisabled(true);

@@ -26,7 +26,7 @@ const LayoutWrapper = ({
                     fontSize={[13, 15, 15]}
                 >
                     <Box>
-                        Please note that Tonietales is an independent platform
+                        Please note that Tonietale is an independent platform
                         and is not affiliated with, endorsed by, or associated
                         with Tonies GmbH or its parent company. Our website is
                         dedicated to providing a space for users to create

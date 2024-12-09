@@ -25,7 +25,7 @@ const Header = () => {
 
             <Box width={[100, 300, 400]}>
                 <Link href="/">
-                    <Image asChild alt="TonieTales">
+                    <Image asChild alt="TonieTale">
                         <NextImage src={logo} alt="logo" width={200} />
                     </Image>
                 </Link>

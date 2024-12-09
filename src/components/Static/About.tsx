@@ -7,11 +7,11 @@ const AboutUs = () => {
                 About us
             </Text>
             <Text pb="2">
-                Discover the Magic of TonieTales: Your Gateway to Personalized
+                Discover the Magic of TonieTale: Your Gateway to Personalized
                 Storytelling!
             </Text>
             <Text pb="2">
-                At TonieTales, we believe every child deserves a story that
+                At TonieTale, we believe every child deserves a story that
                 speaks to their heart and sparks their imagination. That’s why
                 we’ve created this innovative platform to empower parents,
                 guardians, and storytellers like you to craft unique, engaging
@@ -44,7 +44,7 @@ const AboutUs = () => {
             </List.Root>
             <Text>
                 Join us on this magical journey of storytelling. With
-                TonieTales, you’re not just creating stories – you’re crafting
+                TonieTale, you’re not just creating stories – you’re crafting
                 memories, nurturing imagination, and strengthening bonds. Let’s
                 make every story time an unforgettable experience!
             </Text>
