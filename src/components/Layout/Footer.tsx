@@ -3,7 +3,6 @@ import { DateTime } from 'luxon';
 import NextLink from 'next/link';
 import BuyMeCoffee from '../BuyMeCoffee';
 import { maxWidthProps } from './styles/customTheme';
-import getConfig from 'next/config';
 
 const year = DateTime.now().year;
 

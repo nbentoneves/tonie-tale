@@ -30,10 +30,10 @@ const ProvidersWrapper = ({
     // Create a client
     const queryClient = new QueryClient({
         queryCache: new QueryCache({
-            onError: (error, _) => handleError(error as AxiosError),
+            onError: (error) => handleError(error as AxiosError),
         }),
         mutationCache: new MutationCache({
-            onError: (error, _) => handleError(error as AxiosError),
+            onError: (error) => handleError(error as AxiosError),
         }),
     });
 

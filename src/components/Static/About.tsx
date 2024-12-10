@@ -43,10 +43,10 @@ const AboutUs = () => {
                 </List.Item>
             </List.Root>
             <Text>
-                Join us on this magical journey of storytelling. With
-                TonieTale, you’re not just creating stories – you’re crafting
-                memories, nurturing imagination, and strengthening bonds. Let’s
-                make every story time an unforgettable experience!
+                Join us on this magical journey of storytelling. With TonieTale,
+                you’re not just creating stories – you’re crafting memories,
+                nurturing imagination, and strengthening bonds. Let’s make every
+                story time an unforgettable experience!
             </Text>
         </Box>
     );

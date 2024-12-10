@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client';
 import {
     Box,
@@ -18,8 +19,10 @@ import {
     SelectTrigger,
     SelectValueText,
 } from '@componentes/ui/select';
+import { toaster } from '@componentes/ui/toaster';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { RiDeleteBin5Fill as DeleteIcon } from 'react-icons/ri';
+import { Tales } from '../../../utils/tales';
 
 enum TargetAge {
     TODDLER = 'TODDLER', //1-2 years
@@ -65,7 +68,7 @@ const taleThemes = createListCollection({
         { label: 'Friendship and Teamwork', value: Theme.FRIENDSHIP_TEAMWORK },
         { label: 'Courage and Bravery', value: Theme.COURAGE_BRAVERY },
         { label: 'Kindness and Compassion', value: Theme.KINDNESS_COMPASSION },
-        {
+        /*{
             label: 'Imagination and Creativity',
             value: Theme.IMAGINATION_CREATIVITY,
         },
@@ -80,7 +83,7 @@ const taleThemes = createListCollection({
         {
             label: 'Learning Life Lessons ',
             value: Theme.LEARNING_LIFE_LESSONS,
-        },
+        },*/
     ],
 });
 
@@ -94,19 +97,14 @@ const ageTargets = createListCollection({
 
 const durations = createListCollection({
     items: [
-        { label: '20 min', value: Duration.TWENTY_MIN },
+        //{ label: '20 min', value: Duration.TWENTY_MIN },
         { label: '60 min', value: Duration.SIXTY_MIN },
-        { label: '120 min', value: Duration.ONE_HUNDRED_TWENTY_MIN },
+        //{ label: '120 min', value: Duration.ONE_HUNDRED_TWENTY_MIN },
     ],
 });
 
 const TalesCreate = () => {
-    const {
-        register,
-        handleSubmit,
-        control,
-        formState: { errors },
-    } = useForm<TaleInputs>();
+    const { register, handleSubmit, control } = useForm<TaleInputs>();
 
     const {
         fields: characters,
@@ -117,7 +115,23 @@ const TalesCreate = () => {
         name: 'characters', // unique name for your Field Array
     });
 
-    const onSubmit: SubmitHandler<TaleInputs> = (data) => console.log(data);
+    const onSubmit: SubmitHandler<TaleInputs> = (data) => {
+        console.log(data);
+
+        const file = Tales.TALES_MAP.find((tale) => {
+            return tale.key === `${data.targetAge}-${data.theme}`;
+        });
+
+        if (file) {
+            //This will trigger the download file
+            Tales.processFileContents(file.tale, data.mainCharacter);
+        } else {
+            toaster.create({
+                title: 'Something went wrong. Please contact the administrator!',
+                type: 'error',
+            });
+        }
+    };
 
     return (
         <Fieldset.Root size="lg" maxW="lvh">
@@ -136,7 +150,7 @@ const TalesCreate = () => {
                 </Stack>
 
                 <Fieldset.Content mt="6">
-                    <Field label="Main Character's name">
+                    <Field label="Main Character's name" required>
                         <Input {...register('mainCharacter')} />
                     </Field>
 
@@ -180,7 +194,7 @@ const TalesCreate = () => {
                         </SelectContent>
                     </SelectRoot>
 
-                    <Flex>
+                    <Flex hidden>
                         <Button
                             onClick={() =>
                                 addCharacters({ name: '', type: '' })
@@ -250,8 +264,14 @@ const TalesCreate = () => {
                     </Field>
                 </Fieldset.Content>
 
-                <Button type="submit" alignSelf="flex-start" mt="10">
-                    Submit
+                <Button
+                    type="submit"
+                    bgColor="red.600"
+                    alignSelf="flex-start"
+                    mt="10"
+                    _hover={{ bgColor: 'red.700' }}
+                >
+                    Abracadabra, Story-dabra!
                 </Button>
             </form>
         </Fieldset.Root>

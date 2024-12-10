@@ -11,11 +11,7 @@ type InputForm = {
 };
 
 const Mailchimp = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<InputForm>();
+    const { register, handleSubmit } = useForm<InputForm>();
 
     const [isSubscriptionDisabled, setIsSubscriptionDisabled] =
         useState<boolean>(false);

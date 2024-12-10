@@ -20,7 +20,6 @@ import {
     DrawerTrigger,
 } from '@componentes/ui/drawer';
 import { BiMenu as MenuIcon } from 'react-icons/bi';
-import { Env } from '../../utils/env';
 
 const AppMenu = () => {
     const { onClose, onOpen, open } = useDisclosure();
@@ -55,11 +54,10 @@ const AppMenu = () => {
                             textDecoration="none"
                             outline="none"
                             onClick={onClose}
-                            hidden
                         >
                             <Flex marginY={4} alignItems="center" padding={2}>
                                 <Box marginLeft={4}>
-                                    <Heading size="sm">Get a Tale</Heading>
+                                    <Heading size="sm">Abracadabra, Story-dabra!</Heading>
                                     <Text fontSize="xs">
                                         Generate a personalized tale
                                     </Text>
