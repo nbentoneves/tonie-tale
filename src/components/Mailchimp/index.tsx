@@ -2,6 +2,7 @@ import { Flex, Input } from '@chakra-ui/react';
 import { Button } from '@componentes/ui/button';
 import { Field } from '@componentes/ui/field';
 import { toaster } from '@componentes/ui/toaster';
+import useMailchimp from '@hooks/useMailchimp';
 import jsonp from 'jsonp';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -13,27 +14,17 @@ type InputForm = {
 const Mailchimp = () => {
     const { register, handleSubmit } = useForm<InputForm>();
 
+    const { subscribe } = useMailchimp();
+
     const [isSubscriptionDisabled, setIsSubscriptionDisabled] =
         useState<boolean>(false);
 
-    const onSubmit: SubmitHandler<InputForm> = (data) => {
-        const url =
-            'https://github.us11.list-manage.com/subscribe/post-json?u=9226449943d3d975da62d4561&amp;id=858bba42ef&amp;f_id=00f7c2e1f0';
+    const onSubmit: SubmitHandler<InputForm> = async (data) => {
+        const isValid = await subscribe(data.email);
 
-        jsonp(`${url}&EMAIL=${data.email}`, { param: 'c' }, (err, response) => {
-            if (err || response.result !== 'success') {
-                toaster.create({
-                    title: 'Something went wrong. Please contact the administrator!',
-                    type: 'error',
-                });
-            } else {
-                toaster.create({
-                    title: 'Thank you for joining the TonieTale family!',
-                    type: 'success',
-                });
-                setIsSubscriptionDisabled(true);
-            }
-        });
+        if (isValid) {
+            setIsSubscriptionDisabled(true);
+        }
     };
 
     return (

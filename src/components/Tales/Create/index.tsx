@@ -23,6 +23,7 @@ import { toaster } from '@componentes/ui/toaster';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { RiDeleteBin5Fill as DeleteIcon } from 'react-icons/ri';
 import { Tales } from '../../../utils/tales';
+import useMailchimp from '@hooks/useMailchimp';
 
 enum TargetAge {
     TODDLER = 'TODDLER', //1-2 years
@@ -106,6 +107,8 @@ const durations = createListCollection({
 const TalesCreate = () => {
     const { register, handleSubmit, control } = useForm<TaleInputs>();
 
+    const { subscribe } = useMailchimp();
+
     const {
         fields: characters,
         append: addCharacters,
@@ -115,8 +118,10 @@ const TalesCreate = () => {
         name: 'characters', // unique name for your Field Array
     });
 
-    const onSubmit: SubmitHandler<TaleInputs> = (data) => {
-        console.log(data);
+    const onSubmit: SubmitHandler<TaleInputs> = async (data) => {
+        if (data.email && data.email.length != 0) {
+            await subscribe(data.email);
+        }
 
         const file = Tales.TALES_MAP.find((tale) => {
             return tale.key === `${data.targetAge}-${data.theme}`;
@@ -157,6 +162,7 @@ const TalesCreate = () => {
                     <SelectRoot
                         collection={durations}
                         {...register('duration')}
+                        required
                     >
                         <SelectLabel>Duration when read aloud</SelectLabel>
                         <SelectTrigger>
@@ -177,6 +183,7 @@ const TalesCreate = () => {
                     <SelectRoot
                         collection={ageTargets}
                         {...register('targetAge')}
+                        required
                     >
                         <SelectLabel>Target age</SelectLabel>
                         <SelectTrigger>
@@ -245,7 +252,11 @@ const TalesCreate = () => {
                         })}
                     </Box>
 
-                    <SelectRoot collection={taleThemes} {...register('theme')}>
+                    <SelectRoot
+                        collection={taleThemes}
+                        {...register('theme')}
+                        required
+                    >
                         <SelectLabel>Theme</SelectLabel>
                         <SelectTrigger>
                             <SelectValueText placeholder="Select a tale theme" />
@@ -259,7 +270,10 @@ const TalesCreate = () => {
                         </SelectContent>
                     </SelectRoot>
 
-                    <Field label="Email address">
+                    <Field
+                        label="Email address"
+                        helperText="Note: Only necessary if you want to subscribe newsletter"
+                    >
                         <Input type="email" {...register('email')} />
                     </Field>
                 </Fieldset.Content>
