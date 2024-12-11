@@ -20,10 +20,10 @@ import {
     SelectValueText,
 } from '@componentes/ui/select';
 import { toaster } from '@componentes/ui/toaster';
+import useMailchimp from '@hooks/useMailchimp';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { RiDeleteBin5Fill as DeleteIcon } from 'react-icons/ri';
 import { Tales } from '../../../utils/tales';
-import useMailchimp from '@hooks/useMailchimp';
 
 enum TargetAge {
     TODDLER = 'TODDLER', //1-2 years
@@ -105,7 +105,12 @@ const durations = createListCollection({
 });
 
 const TalesCreate = () => {
-    const { register, handleSubmit, control } = useForm<TaleInputs>();
+    const {
+        register,
+        handleSubmit,
+        control,
+        formState: { errors },
+    } = useForm<TaleInputs>();
 
     const { subscribe } = useMailchimp();
 
@@ -155,51 +160,65 @@ const TalesCreate = () => {
                 </Stack>
 
                 <Fieldset.Content mt="6">
-                    <Field label="Main Character's name" required>
-                        <Input {...register('mainCharacter')} />
+                    <Field
+                        label="Main Character's name"
+                        errorText="Ops! It's missing the main character's name"
+                        invalid={!!errors.mainCharacter}
+                    >
+                        <Input
+                            {...register('mainCharacter', { required: true })}
+                        />
                     </Field>
 
-                    <SelectRoot
-                        collection={durations}
-                        {...register('duration')}
-                        required
+                    <Field
+                        errorText="Select a tale duration"
+                        invalid={!!errors.duration}
                     >
-                        <SelectLabel>Duration when read aloud</SelectLabel>
-                        <SelectTrigger>
-                            <SelectValueText placeholder="Select a duration" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {durations.items.map((duration) => (
-                                <SelectItem
-                                    item={duration}
-                                    key={duration.value}
-                                >
-                                    {duration.label}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </SelectRoot>
+                        <SelectRoot
+                            collection={durations}
+                            {...register('duration', { required: true })}
+                        >
+                            <SelectLabel>Duration when read aloud</SelectLabel>
+                            <SelectTrigger>
+                                <SelectValueText placeholder="Select a duration" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {durations.items.map((duration) => (
+                                    <SelectItem
+                                        item={duration}
+                                        key={duration.value}
+                                    >
+                                        {duration.label}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </SelectRoot>
+                    </Field>
 
-                    <SelectRoot
-                        collection={ageTargets}
-                        {...register('targetAge')}
-                        required
+                    <Field
+                        errorText="Select a target age"
+                        invalid={!!errors.targetAge}
                     >
-                        <SelectLabel>Target age</SelectLabel>
-                        <SelectTrigger>
-                            <SelectValueText placeholder="Select a target age" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {ageTargets.items.map((ageTarget) => (
-                                <SelectItem
-                                    item={ageTarget}
-                                    key={ageTarget.value}
-                                >
-                                    {ageTarget.label}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </SelectRoot>
+                        <SelectRoot
+                            collection={ageTargets}
+                            {...register('targetAge', { required: true })}
+                        >
+                            <SelectLabel>Target age</SelectLabel>
+                            <SelectTrigger>
+                                <SelectValueText placeholder="Select a target age" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {ageTargets.items.map((ageTarget) => (
+                                    <SelectItem
+                                        item={ageTarget}
+                                        key={ageTarget.value}
+                                    >
+                                        {ageTarget.label}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </SelectRoot>
+                    </Field>
 
                     <Flex hidden>
                         <Button
@@ -252,23 +271,27 @@ const TalesCreate = () => {
                         })}
                     </Box>
 
-                    <SelectRoot
-                        collection={taleThemes}
-                        {...register('theme')}
-                        required
+                    <Field
+                        errorText="Select a tale theme"
+                        invalid={!!errors.theme}
                     >
-                        <SelectLabel>Theme</SelectLabel>
-                        <SelectTrigger>
-                            <SelectValueText placeholder="Select a tale theme" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {taleThemes.items.map((theme) => (
-                                <SelectItem item={theme} key={theme.value}>
-                                    {theme.label}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </SelectRoot>
+                        <SelectRoot
+                            collection={taleThemes}
+                            {...register('theme', { required: true })}
+                        >
+                            <SelectLabel>Theme</SelectLabel>
+                            <SelectTrigger>
+                                <SelectValueText placeholder="Select a tale theme" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {taleThemes.items.map((theme) => (
+                                    <SelectItem item={theme} key={theme.value}>
+                                        {theme.label}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </SelectRoot>
+                    </Field>
 
                     <Field
                         label="Email address"
@@ -281,9 +304,9 @@ const TalesCreate = () => {
                 <Button
                     type="submit"
                     bgColor="red.600"
+                    _hover={{ bgColor: 'red.700' }}
                     alignSelf="flex-start"
                     mt="10"
-                    _hover={{ bgColor: 'red.700' }}
                 >
                     Abracadabra, Story-dabra!
                 </Button>

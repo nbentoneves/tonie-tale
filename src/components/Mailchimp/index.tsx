@@ -1,9 +1,7 @@
 import { Flex, Input } from '@chakra-ui/react';
 import { Button } from '@componentes/ui/button';
 import { Field } from '@componentes/ui/field';
-import { toaster } from '@componentes/ui/toaster';
 import useMailchimp from '@hooks/useMailchimp';
-import jsonp from 'jsonp';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -12,7 +10,11 @@ type InputForm = {
 };
 
 const Mailchimp = () => {
-    const { register, handleSubmit } = useForm<InputForm>();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<InputForm>();
 
     const { subscribe } = useMailchimp();
 
@@ -35,16 +37,26 @@ const Mailchimp = () => {
                 direction="column"
                 mt="6"
             >
-                <Field maxW="md">
+                <Field
+                    maxW="md"
+                    errorText="Please provide an email address!"
+                    invalid={!!errors.email}
+                >
                     <Input
                         type="email"
-                        {...register('email')}
+                        {...register('email', { required: true })}
                         placeholder="Email"
                         disabled={isSubscriptionDisabled}
                     />
                 </Field>
 
-                <Button type="submit" mt="3" disabled={isSubscriptionDisabled}>
+                <Button
+                    type="submit"
+                    mt="3"
+                    disabled={isSubscriptionDisabled}
+                    bgColor="red.600"
+                    _hover={{ bgColor: 'red.700' }}
+                >
                     Subscribe
                 </Button>
             </Flex>
