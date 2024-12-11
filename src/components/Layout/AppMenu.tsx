@@ -20,6 +20,7 @@ import {
     DrawerTrigger,
 } from '@componentes/ui/drawer';
 import { BiMenu as MenuIcon } from 'react-icons/bi';
+import { Routes } from '../../utils/routes';
 
 const AppMenu = () => {
     const { onClose, onOpen, open } = useDisclosure();
@@ -49,36 +50,32 @@ const AppMenu = () => {
                         </Text>
                     </DrawerHeader>
                     <DrawerBody>
-                        <Link
-                            href="/create"
-                            textDecoration="none"
-                            outline="none"
-                            onClick={onClose}
-                        >
-                            <Flex marginY={4} alignItems="center" padding={2}>
-                                <Box marginLeft={4}>
-                                    <Heading size="sm">Abracadabra, Story-dabra!</Heading>
-                                    <Text fontSize="xs">
-                                        Generate a personalized tale
-                                    </Text>
-                                </Box>
-                            </Flex>
-                        </Link>
-                        <Link
-                            href="/about"
-                            textDecoration="none"
-                            outline="none"
-                            onClick={onClose}
-                        >
-                            <Flex marginY={4} alignItems="center" padding={2}>
-                                <Box marginLeft={4}>
-                                    <Heading size="sm">About us</Heading>
-                                    <Text fontSize="xs">
-                                        Discover the Magic of TonieTale
-                                    </Text>
-                                </Box>
-                            </Flex>
-                        </Link>
+                        {Routes.pages.map((page) => {
+                            return (
+                                <Link
+                                    key={page.href}
+                                    href={page.href}
+                                    textDecoration="none"
+                                    outline="none"
+                                    onClick={onClose}
+                                >
+                                    <Flex
+                                        marginY={4}
+                                        alignItems="center"
+                                        padding={2}
+                                    >
+                                        <Box marginLeft={4}>
+                                            <Heading size="sm">
+                                                {page.name}
+                                            </Heading>
+                                            <Text fontSize="xs">
+                                                {page.description}
+                                            </Text>
+                                        </Box>
+                                    </Flex>
+                                </Link>
+                            );
+                        })}
                     </DrawerBody>
                     <DrawerFooter>
                         <DrawerActionTrigger asChild>
