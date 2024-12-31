@@ -12,7 +12,7 @@
     "prettier": "prettier --write src/**/*.ts src/**/*.tsx",
     "type-check": "tsc --noEmit",
     "ci": "yarn prettier && yarn lint && yarn type-check && yarn test --watchAll=false",
-    "api-gen": "yarn dlx @openapitools/openapi-generator-cli generate -g typescript-axios -i http://localhost:8080/v3/api-docs -o src/package/api/mymarketinfo"
+    "api-gen": "yarn dlx @openapitools/openapi-generator-cli generate -g typescript-axios -i http://localhost:8080/v3/api-docs -o src/package/api/tonieTales"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.2.2",

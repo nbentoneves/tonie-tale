@@ -52,9 +52,12 @@ const TALES_MAP = [
 const processFileContents = (contents: string, mainCharacter: string) => {
     // Replace the string
     const updatedContents = contents.replace(/XZY/g, mainCharacter);
+    downloadFile(updatedContents)
+};
 
+const downloadFile = (contents: string) => {
     // Optionally, create a new file with the changes
-    const blob = new Blob([updatedContents], { type: BLOB_OUTPUT_TYPE });
+    const blob = new Blob([contents], { type: BLOB_OUTPUT_TYPE });
     const url = URL.createObjectURL(blob);
 
     // Create a download link for the modified file
@@ -70,4 +73,5 @@ const processFileContents = (contents: string, mainCharacter: string) => {
 export const Tales = {
     TALES_MAP,
     processFileContents,
+    downloadFile,
 };

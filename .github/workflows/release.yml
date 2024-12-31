@@ -79,7 +79,6 @@ jobs:
 
   # Deployment job
   deploy:
-
     name: 'Deploy'
 
     environment:

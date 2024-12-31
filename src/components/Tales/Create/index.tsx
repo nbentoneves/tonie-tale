@@ -24,6 +24,8 @@ import useMailchimp from '@hooks/useMailchimp';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { RiDeleteBin5Fill as DeleteIcon } from 'react-icons/ri';
 import { Tales } from '../../../utils/tales';
+import useGenerateTale from '@hooks/useGenerateTale';
+import { useEffect } from 'react';
 
 enum TargetAge {
     TODDLER = 'TODDLER', //1-2 years
@@ -69,7 +71,7 @@ const taleThemes = createListCollection({
         { label: 'Friendship and Teamwork', value: Theme.FRIENDSHIP_TEAMWORK },
         { label: 'Courage and Bravery', value: Theme.COURAGE_BRAVERY },
         { label: 'Kindness and Compassion', value: Theme.KINDNESS_COMPASSION },
-        /*{
+        {
             label: 'Imagination and Creativity',
             value: Theme.IMAGINATION_CREATIVITY,
         },
@@ -84,7 +86,7 @@ const taleThemes = createListCollection({
         {
             label: 'Learning Life Lessons ',
             value: Theme.LEARNING_LIFE_LESSONS,
-        },*/
+        },
     ],
 });
 
@@ -98,9 +100,9 @@ const ageTargets = createListCollection({
 
 const durations = createListCollection({
     items: [
-        //{ label: '20 min', value: Duration.TWENTY_MIN },
+        { label: '20 min', value: Duration.TWENTY_MIN },
         { label: '60 min', value: Duration.SIXTY_MIN },
-        //{ label: '120 min', value: Duration.ONE_HUNDRED_TWENTY_MIN },
+        { label: '120 min', value: Duration.ONE_HUNDRED_TWENTY_MIN },
     ],
 });
 
@@ -113,6 +115,7 @@ const TalesCreate = () => {
     } = useForm<TaleInputs>();
 
     const { subscribe } = useMailchimp();
+    const { generateTale, status, tale } = useGenerateTale();
 
     const {
         fields: characters,
@@ -128,20 +131,28 @@ const TalesCreate = () => {
             await subscribe(data.email);
         }
 
-        const file = Tales.TALES_MAP.find((tale) => {
-            return tale.key === `${data.targetAge}-${data.theme}`;
+        generateTale({
+            mainCharacter: data.mainCharacter,
+            duration: Number(data.duration),
+            targetAge: data.targetAge,
+            theme: data.theme,
         });
+    };
 
-        if (file) {
-            //This will trigger the download file
-            Tales.processFileContents(file.tale, data.mainCharacter);
-        } else {
+    useEffect(() => {
+        if (status.isError) {
             toaster.create({
                 title: 'Something went wrong. Please contact the administrator!',
                 type: 'error',
             });
         }
-    };
+    }, [status.isError]);
+
+    useEffect(() => {
+        if (status.isSuccess && tale) {
+            Tales.downloadFile(tale.data?.content ?? '');
+        }
+    }, [tale, status.isSuccess]);
 
     return (
         <Fieldset.Root size="lg" maxW="lvh">
@@ -173,6 +184,7 @@ const TalesCreate = () => {
                     <Field
                         errorText="Select a tale duration"
                         invalid={!!errors.duration}
+                        hidden
                     >
                         <SelectRoot
                             collection={durations}

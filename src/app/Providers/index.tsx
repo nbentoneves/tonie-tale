@@ -10,6 +10,8 @@ import {
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { AxiosError } from 'axios';
 import React from 'react';
+import { ApiContext, createApi } from '@package/api/context';
+import { Env } from 'src/utils/env';
 
 const ProvidersWrapper = ({
     children,
@@ -40,9 +42,17 @@ const ProvidersWrapper = ({
     return (
         <ChakraProvider defaultTheme="light">
             <QueryClientProvider client={queryClient}>
-                <Toaster />
-                <>{children}</>
-                <ReactQueryDevtools initialIsOpen={false} />
+                <ApiContext.Provider
+                    value={createApi({
+                        tonieTales: {
+                            uri: Env.uriApi,
+                        },
+                    })}
+                >
+                    <Toaster />
+                    <>{children}</>
+                    <ReactQueryDevtools initialIsOpen={false} />
+                </ApiContext.Provider>
             </QueryClientProvider>
         </ChakraProvider>
     );
