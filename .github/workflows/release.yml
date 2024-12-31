@@ -23,6 +23,7 @@ jobs:
   
     name: 'Release'
     runs-on: ubuntu-latest
+    environment: "github-pages"
 
     steps:
       - name: Checkout
@@ -71,6 +72,9 @@ jobs:
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} build
+        env: 
+          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ vars.GOOGLE_ANALYTICS }}
+          NEXT_PUBLIC_MAILCHIMP_ADDRESS: ${{ vars.MAILCHIMP_ADDRESS }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
