@@ -1,4 +1,5 @@
 cypress/screenshots/
 cypress/videos/
+package/api/tonieTales
 
 changelog.config.js

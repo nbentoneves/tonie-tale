@@ -10,6 +10,7 @@ const useGenerateTale = () => {
         data: tale,
         isSuccess,
         isError,
+        isPending,
         mutate: generateTale,
     } = useMutation({
         mutationKey: ['generateTale'],
@@ -22,6 +23,7 @@ const useGenerateTale = () => {
         status: {
             isSuccess,
             isError,
+            isLoading: isPending,
         },
         tale,
     };

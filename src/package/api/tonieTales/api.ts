@@ -42,19 +42,6 @@ import {
 /**
  *
  * @export
- * @interface Tale
- */
-export interface Tale {
-    /**
-     *
-     * @type {string}
-     * @memberof Tale
-     */
-    content?: string;
-}
-/**
- *
- * @export
  * @interface TaleInfo
  */
 export interface TaleInfo {
@@ -186,7 +173,7 @@ export const TalesControllerApiFp = function (configuration?: Configuration) {
             taleInfo: TaleInfo,
             options?: RawAxiosRequestConfig,
         ): Promise<
-            (axios?: AxiosInstance, basePath?: string) => AxiosPromise<Tale>
+            (axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>
         > {
             const localVarAxiosArgs =
                 await localVarAxiosParamCreator.createNewTale(
@@ -230,7 +217,7 @@ export const TalesControllerApiFactory = function (
         createNewTale(
             taleInfo: TaleInfo,
             options?: RawAxiosRequestConfig,
-        ): AxiosPromise<Tale> {
+        ): AxiosPromise<void> {
             return localVarFp
                 .createNewTale(taleInfo, options)
                 .then((request) => request(axios, basePath));

@@ -7,7 +7,10 @@ import {
     Flex,
     IconButton,
     Input,
+    Spinner,
     Stack,
+    Text,
+    VStack,
 } from '@chakra-ui/react';
 import { Button } from '@componentes/ui/button';
 import { Field } from '@componentes/ui/field';
@@ -149,10 +152,10 @@ const TalesCreate = () => {
     }, [status.isError]);
 
     useEffect(() => {
-        if (status.isSuccess && tale) {
-            Tales.downloadFile(tale.data?.content ?? '');
+        if (!status.isLoading && status.isSuccess && tale) {
+            Tales.downloadFile(tale.data ?? '');
         }
-    }, [tale, status.isSuccess]);
+    }, [tale, status]);
 
     return (
         <Fieldset.Root size="lg" maxW="lvh">
@@ -314,15 +317,22 @@ const TalesCreate = () => {
                     </Field>
                 </Fieldset.Content>
 
-                <Button
-                    type="submit"
-                    bgColor="red.600"
-                    _hover={{ bgColor: 'red.700' }}
-                    alignSelf="flex-start"
-                    mt="10"
-                >
-                    Abracadabra, Story-dabra!
-                </Button>
+                <Flex mt="10" alignSelf="flex-start">
+                    {!status.isLoading ? (
+                        <Button
+                            type="submit"
+                            bgColor="red.600"
+                            _hover={{ bgColor: 'red.700' }}
+                        >
+                            Abracadabra, Story-dabra!
+                        </Button>
+                    ) : (
+                        <VStack colorPalette="red">
+                            <Spinner color="red.700" />
+                            <Text color="red.700">Loading...</Text>
+                        </VStack>
+                    )}
+                </Flex>
             </form>
         </Fieldset.Root>
     );
