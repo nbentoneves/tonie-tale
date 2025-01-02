@@ -75,6 +75,7 @@ jobs:
         env: 
           NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ vars.GOOGLE_ANALYTICS }}
           NEXT_PUBLIC_MAILCHIMP_ADDRESS: ${{ vars.MAILCHIMP_ADDRESS }}
+          NEXT_PUBLIC_TONIE_TALE_API: ${{ vars.TONIE_TALE_API }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
