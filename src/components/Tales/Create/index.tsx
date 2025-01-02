@@ -184,10 +184,11 @@ const TalesCreate = () => {
                     <Field
                         errorText="Select a tale duration"
                         invalid={!!errors.duration}
-                        hidden
                     >
                         <SelectRoot
                             collection={durations}
+                            defaultValue={[Duration.TWENTY_MIN]}
+                            hidden
                             {...register('duration', { required: true })}
                         >
                             <SelectLabel>Duration when read aloud</SelectLabel>
