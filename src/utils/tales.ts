@@ -52,7 +52,7 @@ const TALES_MAP = [
 const processFileContents = (contents: string, mainCharacter: string) => {
     // Replace the string
     const updatedContents = contents.replace(/XZY/g, mainCharacter);
-    downloadFile(updatedContents)
+    downloadFile(updatedContents);
 };
 
 const downloadFile = (contents: string) => {
