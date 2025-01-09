@@ -20,6 +20,16 @@ const pages = [
         },
     },
     {
+        name: 'How To Upload Tales!',
+        description: 'Find how to upload tales into creative tonies',
+        href: '/how-to-upload',
+        sitemap: {
+            lastModified: new Date().toISOString(),
+            changeFrequency: 'monthly',
+            priority: 1,
+        },
+    },
+    {
         name: 'About us',
         description: 'Discover the Magic of TonieTale',
         href: '/about',

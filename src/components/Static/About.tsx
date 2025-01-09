@@ -48,6 +48,35 @@ const AboutUs = () => {
                 nurturing imagination, and strengthening bonds. Let’s make every
                 story time an unforgettable experience!
             </Text>
+            <Text as="h1" fontSize="2xl" my={5}>
+                Resources & Icons
+            </Text>
+            <List.Root>
+                <List.Item pb="4">
+                    <a
+                        href="https://www.freepik.com/icon/robotics_17310957#fromView=search&page=1&position=0&uuid=ae907a59-94e9-4afe-a4ae-cca9a5433343"
+                        target="_blank"
+                    >
+                        Icon by Iconic Artisan
+                    </a>
+                </List.Item>
+                <List.Item pb="4">
+                    <a
+                        href="https://www.freepik.com/icon/audio_1754141#fromView=search&page=1&position=26&uuid=71f222ee-5735-4b6d-9e36-3c0d8714e3e5"
+                        target="_blank"
+                    >
+                        Icon by Flat Icons
+                    </a>
+                </List.Item>
+                <List.Item pb="4">
+                    <a
+                        href="https://www.freepik.com/icon/upload_14512128#fromView=search&page=1&position=17&uuid=925decc8-db63-4f04-b9f0-334053442751"
+                        target="_blank"
+                    >
+                        Icon by Elite Art
+                    </a>
+                </List.Item>
+            </List.Root>
         </Box>
     );
 };
