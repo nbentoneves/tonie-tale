@@ -75,9 +75,24 @@ const aboutPage: Metadata = {
     },
 };
 
+const howToUpload: Metadata = {
+    ...defaults,
+    title: 'TonieTale | How to Upload Stories to Your Toniebox',
+    description:
+        'Learn how to easily upload custom stories from TonieTale to your Toniebox using Creative-Tonies. Follow our step-by-step guide to enhance your child’s storytelling experience.',
+    keywords:
+        'TonieTale, Toniebox, Creative-Tonies, upload stories, custom audio, children’s stories, MP3 upload, Tonie Cloud, audio content, storytelling, kids’ entertainment',
+    alternates: {
+        canonical: Env.isDevelopment
+            ? 'http://localhost:3000'
+            : `https://tonietale.com/how-to-upload`,
+    },
+};
+
 export const Seo = {
     default: homePage,
     homePage,
     createTalesPage,
     aboutPage,
+    howToUpload,
 };
