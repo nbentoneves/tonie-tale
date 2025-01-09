@@ -1,4 +1,11 @@
-import { AspectRatio, Heading, Icon, List, SimpleGrid, Stack } from '@chakra-ui/react';
+import {
+    AspectRatio,
+    Heading,
+    Icon,
+    List,
+    SimpleGrid,
+    Stack,
+} from '@chakra-ui/react';
 import {
     AccordionItem,
     AccordionItemContent,
