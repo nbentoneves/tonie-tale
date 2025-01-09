@@ -77,6 +77,7 @@ export const SelectItem = React.forwardRef<
 
 interface SelectValueTextProps
     extends Omit<ChakraSelect.ValueTextProps, 'children'> {
+    // eslint-disable-next-line no-unused-vars
     children?(items: CollectionItem[]): React.ReactNode;
 }
 

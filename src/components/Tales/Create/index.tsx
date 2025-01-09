@@ -10,7 +10,6 @@ import {
     Spinner,
     Stack,
     Text,
-    VStack,
 } from '@chakra-ui/react';
 import { Button } from '@componentes/ui/button';
 import { Field } from '@componentes/ui/field';
@@ -23,12 +22,12 @@ import {
     SelectValueText,
 } from '@componentes/ui/select';
 import { toaster } from '@componentes/ui/toaster';
+import useGenerateTale from '@hooks/useGenerateTale';
 import useMailchimp from '@hooks/useMailchimp';
+import { useEffect } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { RiDeleteBin5Fill as DeleteIcon } from 'react-icons/ri';
 import { Tales } from '../../../utils/tales';
-import useGenerateTale from '@hooks/useGenerateTale';
-import { useEffect } from 'react';
 
 enum TargetAge {
     TODDLER = 'TODDLER', //1-2 years
@@ -327,10 +326,14 @@ const TalesCreate = () => {
                             Abracadabra, Story-dabra!
                         </Button>
                     ) : (
-                        <VStack colorPalette="red">
-                            <Spinner color="red.700" />
-                            <Text color="red.700">Loading...</Text>
-                        </VStack>
+                        <Flex direction="column">
+                            <Box mb="2">
+                                <Spinner color="red.700" />
+                            </Box>
+                            <Text color="red.700">
+                                Crafting story...this might take some time!
+                            </Text>
+                        </Flex>
                     )}
                 </Flex>
             </form>

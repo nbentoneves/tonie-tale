@@ -5,7 +5,7 @@ const useMailchimp = () => {
     const MAILCHIMP_URL = process.env.NEXT_PUBLIC_MAILCHIMP_ADDRESS;
 
     const subscribe = (email: string): Promise<boolean> => {
-        return new Promise((resolve, _) =>
+        return new Promise((resolve) =>
             jsonp(
                 `${MAILCHIMP_URL}&EMAIL=${email}`,
                 { param: 'c' },
